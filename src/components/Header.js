@@ -1,7 +1,7 @@
 export default function Header(props){
     const headerClick = (event) => {
         event.preventDefault();
-        alert("Header");
+        props.onChangeMode();
     };
 
     return(
