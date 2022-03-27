@@ -1,8 +1,12 @@
 export default function Header(props){
-    console.log('props :', props, props.title)
+    const headerClick = (event) => {
+        event.preventDefault();
+        alert("Header");
+    };
+
     return(
         <header>
-            <h1><a href="/">{props.title}</a></h1>
+            <h1><a href="/" onClick={headerClick}>{props.title}</a></h1>
         </header>
     )
 }

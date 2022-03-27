@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Header title="Reading record" />
-      <Nav topics={topics} />
+      <Nav topics={topics}  />
       <Detail title="Welcome" contents="Hello. Readers"/>
     </div>
   );
