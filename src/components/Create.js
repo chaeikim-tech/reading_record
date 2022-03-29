@@ -5,7 +5,7 @@ export default function Create(props){
         const title = event.target.title.value;
         const body = event.target.body.value;
         props.onCreate(title, body);
-    }
+    };
     return (
         <article>
             <h2>Create</h2>

@@ -11,8 +11,8 @@ function App() {
     event.preventDefault();
     setMode("CREATE");
   };
-  const onCreate = (_title, _body) =>{
-      const newTopic = {id:nextId, title:_title, body:_body}
+  const onCreate = (title, body) =>{
+      const newTopic = {id:nextId, title, body}
       const newTopics = [...topics]
       newTopics.push(newTopic);
       setTopics(newTopics);
@@ -33,6 +33,17 @@ function App() {
     setTopics(newTopics);
     setMode("READ");
   };
+const onDelete = () =>{
+  const newTopics = [];
+  for(let i=0; i<topics.length; i++){
+    if(topics[i].id !== id){
+      newTopics.push(topics[i]);
+    }
+  }
+  setTopics(newTopics);
+  setMode("WELCOME");
+}
+
   const [mode, setMode] = useState("WELCOME");
   const [id, setId] = useState(null); 
   const [nextId, setNextId] = useState(4);
@@ -54,10 +65,16 @@ function App() {
       }
     }
     content = <Detail title={title} body={body} />
-    contextControl = <li><a href={'/update/'+id} onClick={event=>{
-      event.preventDefault();
-      setMode('UPDATE');
-    }}>Update</a></li>
+    contextControl = 
+      <>
+        <li><a href={'/update/'+id} onClick={event=>{
+        event.preventDefault();
+        setMode('UPDATE');
+        }}>Update</a></li>
+        <li>
+          <input type="button" value="Delete" onClick={onDelete} />
+        </li>
+      </>
   } else if(mode === "CREATE") {
     content = <Create onCreate={onCreate}/>
   } else if(mode === 'UPDATE'){

@@ -8,13 +8,13 @@ export default function Update(props) {
         const title = event.target.title.value;
         const body = event.target.body.value;
         props.onUpdate(title, body);
-    }
+    };
     const titleChange = (event) =>{
         setTitle(event.target.value);
-    }
+    };
     const bodyChange = (event) =>{
         setBody(event.target.value);
-    }
+    };
     return(
         <article>
             <h2>Update</h2>
